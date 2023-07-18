@@ -1,0 +1,24 @@
+[
+    {
+      "reviewText": "This is a great bike for road cycling. It has excellent performance and handling.",
+      "reviewAuthor": "John Doe",
+      "createdAt": "2022-08-15T12:34:56.789Z",
+      "bike": "Specialized Tarmac SL 8",
+      "rating": 4.8
+    },
+    {
+      "reviewText": "I love this gravel bike! It's durable and versatile, perfect for off-road adventures.",
+      "reviewAuthor": "Jane Smith",
+      "createdAt": "2022-09-20T10:11:12.345Z",
+      "bike": "Canyon Grail",
+      "rating": 4.5
+    },
+    {
+      "reviewText": "The mountain bike has excellent suspension and handles technical trails with ease.",
+      "reviewAuthor": "Mike Johnson",
+      "createdAt": "2022-10-25T08:45:00.000Z",
+      "bike": "Trek Fuel EX",
+      "rating": 4.9
+    }
+  ]
+  
