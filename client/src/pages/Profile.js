@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, } from "react-bootstrap";
 
 import ReviewForm from "../components/ReviewForm";
 import ReviewList from "../components/ReviewList";
