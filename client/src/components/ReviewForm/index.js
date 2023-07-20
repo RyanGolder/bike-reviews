@@ -3,7 +3,7 @@ import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 
-import { ADD_REVIEW } from "../../utils/mutations";
+import { ADD_REVIEW } from "../../utils/mutation";
 import { QUERY_REVIEWS, QUERY_ME } from "../../utils/queries";
 
 import Auth from "../../utils/auth";
