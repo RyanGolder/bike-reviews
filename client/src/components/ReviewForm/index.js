@@ -102,6 +102,13 @@ const ReviewForm = () => {
                     placeholder="Rating out of 5"
                 />
             </Form.Group>
+            <Button
+                disabled={!reviewText}
+                type="submit"
+                variant="success"
+            >
+                Submit
+            </Button>
         </Form>
         </>
             ) : (
