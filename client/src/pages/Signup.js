@@ -4,7 +4,7 @@ import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 
 import { ADD_USER } from "../utils/mutation";
-import Auth from "../utils/auth";
+import AuthService from "../utils/auth";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -14,7 +14,7 @@ const Signup = () => {
   });
   const [addUser, { error, loading }] = useMutation(ADD_USER);
 
-  const data = Auth.getProfile();
+  // const data = AuthService.getProfile();
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -22,7 +22,7 @@ const Signup = () => {
       const { data } = await addUser({
         variables: { ...formState },
       });
-      Auth.login(data.addUser.token);
+      AuthService.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
@@ -73,12 +73,6 @@ const Signup = () => {
           {loading ? "Loading..." : "Submit"}
         </Button>
       </Form>
-      {data && data.addUser && (
-        <div className="my-3 p-3 bg-success text-white">
-          Success! You may now head{" "}
-          <Link to="/login">back to the login page.</Link>
-        </div>
-      )}
 
       <div className="my-3 p-3">
         Already have an account? <Link to="/login">Login here</Link>.
