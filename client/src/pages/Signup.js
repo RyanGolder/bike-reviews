@@ -14,6 +14,8 @@ const Signup = () => {
   });
   const [addUser, { error, loading }] = useMutation(ADD_USER);
 
+  const data = Auth.getProfile();
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {

@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
+import { REMOVE_REVIEW } from "../../utils/mutation";
 
 import Auth from "../../utils/auth";
 
@@ -13,6 +13,22 @@ const ReviewList = ({
     if (!reviews.length) {
         return <h3>No Reviews Yet</h3>;
     }
+
+    const handleDeleteReview = async (reviewId) => {
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+        if (!token) {
+            return false;
+        }
+
+        try {
+            await REMOVE_REVIEW(reviewId, token);
+
+            window.location.reload();
+        } catch (err) {
+            console.error(err);
+        }
+    };
 
     return (
         <>

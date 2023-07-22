@@ -9,7 +9,9 @@ import { QUERY_REVIEWS, QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
 
 const ReviewForm = () => {
-  const [reviewText, setText] = useState("");
+  const [reviewText, setReviewText] = useState("");
+  const [rating, setRating] = useState("");
+  const [bike, setBike] = useState("");
 
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -44,11 +46,15 @@ const ReviewForm = () => {
         variables: {
             reviewText,
             reviewAuthor: Auth.getProfile().data.username,
+            rating,
+            bike,
         },
       });
 
       // clear form value
-      setText("");
+      setReviewText("");
+      setBike("");
+      setRating("");
       setCharacterCount(0);
     } catch (e) {
       console.error(e);
@@ -59,7 +65,13 @@ const ReviewForm = () => {
         const { name, value } = event.target;
 
         if (name === "reviewText" && value.length <= 280) {
-            setText(value);
+            setReviewText(value);
+            setCharacterCount(value.length);
+        } else if (name === "bike" && value.length <= 280) {
+            setBike(value);
+            setCharacterCount(value.length);
+        } else if (name === "rating" && value.length <= 280) {
+            setRating(value);
             setCharacterCount(value.length);
         }
     };

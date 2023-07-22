@@ -2,7 +2,6 @@ import React from "react";
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import {}
 
 import Home from './pages/Home';
 import Signup from './pages/Signup';
@@ -32,7 +31,24 @@ const client = new ApolloClient({
 });
 
 function App() {
-
+  return (
+      <ApolloProvider client={client}>
+          <Router>
+              <>
+                  <Header />
+                  <Switch>
+                      <Route exact path="/" component={Home} />
+                      <Route exact path="/signup" component={Signup} />
+                      <Route exact path="/login" component={Login} />
+                      <Route exact path="/me" component={Profile} />
+                      <Route exact path="/reviews/:id" component={SingleReview} />
+                      <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
+                  </Switch>
+                  <Footer />
+              </>
+          </Router>
+      </ApolloProvider>
+  )
 };
 
 export default App;
