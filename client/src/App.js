@@ -1,7 +1,7 @@
 import React from "react";
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from './pages/Home';
 import Signup from './pages/Signup';
@@ -34,18 +34,18 @@ function App() {
   return (
       <ApolloProvider client={client}>
           <Router>
-              <>
-                  <Header />
-                  <Switch>
-                      <Route exact path="/" component={Home} />
-                      <Route exact path="/signup" component={Signup} />
-                      <Route exact path="/login" component={Login} />
-                      <Route exact path="/me" component={Profile} />
-                      <Route exact path="/reviews/:id" component={SingleReview} />
-                      <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
-                  </Switch>
-                  <Footer />
-              </>
+                <>
+                    <Header />
+                    <Routes>
+                        <Route exact path="/" element={<Home />} />
+                        <Route exact path="/signup" element={<Signup />} />
+                        <Route exact path="/login" element={<Login />} />
+                        <Route exact path="/me" element={<Profile />} />
+                        <Route exact path="/reviews/:id" element={<SingleReview />} />
+                        <Route path="*" element={<h1>404 Page Not Found!</h1>} />
+                    </Routes>
+                    <Footer />
+                </>
           </Router>
       </ApolloProvider>
   )

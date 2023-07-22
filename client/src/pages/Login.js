@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
-import Auth from '../../utils/auth';
+import Auth from '../utils/auth';
 import { LOGIN_USER } from '../utils/mutation';
 
 const Login = (props) => {
