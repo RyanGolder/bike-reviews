@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { Container, Row, Col, } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 import ReviewForm from "../components/ReviewForm";
 import ReviewList from "../components/ReviewList";
@@ -44,18 +44,18 @@ const Profile = () => {
         </Col>
 
         <Col xs={12} md={10} className="bg-dark text-light">
-            <ReviewList
-                reviews={user.reviews}
-                title={`${user.username}'s reviews...`}
-                showTitle={false}
-                showUsername={false}
-            />
+          <ReviewList
+            reviews={user.reviews}
+            title={`${user.username}'s reviews...`}
+            showTitle={false}
+            showUsername={false}
+          />
         </Col>
 
         {!userParam && (
-            <Col xs={12} md={8} className="bg-dark text-light">
-                <ReviewForm />
-            </Col>
+          <Col xs={12} md={8} className="bg-dark text-light">
+            <ReviewForm />
+          </Col>
         )}
       </Row>
     </Container>

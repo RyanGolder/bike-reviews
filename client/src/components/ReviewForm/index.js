@@ -44,10 +44,10 @@ const ReviewForm = () => {
       // add review to database
       const { data } = await addReview({
         variables: {
-            reviewText,
-            reviewAuthor: Auth.getProfile().data.username,
-            rating,
-            bike,
+          reviewText,
+          reviewAuthor: Auth.getProfile().data.username,
+          rating,
+          bike,
         },
       });
 
@@ -61,76 +61,72 @@ const ReviewForm = () => {
     }
   };
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-        if (name === "reviewText" && value.length <= 280) {
-            setReviewText(value);
-            setCharacterCount(value.length);
-        } else if (name === "bike" && value.length <= 280) {
-            setBike(value);
-            setCharacterCount(value.length);
-        } else if (name === "rating" && value.length <= 280) {
-            setRating(value);
-            setCharacterCount(value.length);
-        }
-    };
+    if (name === "reviewText" && value.length <= 280) {
+      setReviewText(value);
+      setCharacterCount(value.length);
+    } else if (name === "bike" && value.length <= 280) {
+      setBike(value);
+      setCharacterCount(value.length);
+    } else if (name === "rating" && value.length <= 280) {
+      setRating(value);
+      setCharacterCount(value.length);
+    }
+  };
 
-    return (
-        <div>
-            <h3>Leave a review of a bike here!</h3>
+  return (
+    <div>
+      <h3>Leave a review of a bike here!</h3>
 
-            {Auth.loggedIn() ? (
-                <>
-        <Form onSubmit={handleFormSubmit} className="bg-dark text-light p-4">
+      {Auth.loggedIn() ? (
+        <>
+          <Form onSubmit={handleFormSubmit} className="bg-dark text-light p-4">
             <Form.Group controlId="formReviewText">
-                <Form.Label>Leave a review:</Form.Label>
-                <Form.Control
-                    as="textarea"
-                    rows={3}
-                    placeholder="Leave a review here!"
-                    value={reviewText}
-                    onChange={handleChange}
-                    style={{ height: "200px" }}
-                />
+              <Form.Label>Leave a review:</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                placeholder="Leave a review here!"
+                value={reviewText}
+                onChange={handleChange}
+                style={{ height: "200px" }}
+              />
             </Form.Group>
             <Form.Group controlId="formBike">
-                <Form.Label>Bike Brand, model and year:</Form.Label>
-                <Form.Control
-                    type="text"
-                    value={bike}
-                    onChange={handleChange}
-                    placeholder="Bike Brand, model and year"
-                />
+              <Form.Label>Bike Brand, model and year:</Form.Label>
+              <Form.Control
+                type="text"
+                value={bike}
+                onChange={handleChange}
+                placeholder="Bike Brand, model and year"
+              />
             </Form.Group>
             <Form.Group controlId="formRating">
-                <Form.Label>Rating out of 5:</Form.Label>
-                <Form.Control
-                    type="number"
-                    min={1}
-                    max={5}
-                    value={rating}
-                    onChange={handleChange}
-                    placeholder="Rating out of 5"
-                />
+              <Form.Label>Rating out of 5:</Form.Label>
+              <Form.Control
+                type="number"
+                min={1}
+                max={5}
+                value={rating}
+                onChange={handleChange}
+                placeholder="Rating out of 5"
+              />
             </Form.Group>
-            <Button
-                disabled={!reviewText}
-                type="submit"
-                variant="success"
-            >
-                Submit
+            <Button disabled={!reviewText} type="submit" variant="success">
+              Submit
             </Button>
-        </Form>
+          </Form>
         </>
-            ) : (
-                <p>
-                    You need to be logged in to leave a bike review. Please{" "}
-                    <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-                </p>
-            )}
-        </div>
-    );
+      ) : (
+        <p>
+          You need to be logged in to leave a bike review. Please{" "}
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+        </p>
+      )}
+    </div>
+  );
 };
 
 export default ReviewForm;
