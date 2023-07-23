@@ -5,9 +5,8 @@
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
-- [Contributions](#contributions)
 - [Links](#links)
-- [Questions](#questions)
+- [Contributions and Questions](#contributions-and-questions)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -47,7 +46,7 @@ The Bike Reviews App is a web application that allows users to share their thoug
 - GitHub Repository: https://github.com/RyanGolder/bike-reviews
 - Deployed Application: TBC
 
-## Contributions & Questions
+## Contributions and Questions
 If you would like to contribute to this project or have any questions, please contact me using the details below.
 
 ### Contact Details:
