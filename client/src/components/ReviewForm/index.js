@@ -43,7 +43,7 @@ const ReviewForm = () => {
       const { data } = await addReview({
         variables: {
           reviewText,
-          rating,
+          rating: parseInt(rating),
           bike,
         },
       });

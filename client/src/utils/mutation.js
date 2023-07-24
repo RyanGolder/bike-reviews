@@ -31,10 +31,10 @@ export const ADD_REVIEW = gql`
     addReview(reviewText: $reviewText, bike: $bike, rating: $rating) {
       _id
       reviewText
-      reviewAuthor
-      createdAt
-      rating
       bike
+      rating
+      createdAt
+      reviewAuthor
     }
   }
 `;

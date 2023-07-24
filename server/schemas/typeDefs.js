@@ -10,12 +10,12 @@ const typeDefs = gql`
   }
 
   type Review {
-    _id: ID
-    reviewText: String
-    reviewAuthor: String
-    createdAt: String
-    bike: String
-    rating: Int
+    _id: ID!
+    reviewText: String!
+    reviewAuthor: String!
+    createdAt: String!
+    bike: String!
+    rating: Int!
   }
 
   type Auth {

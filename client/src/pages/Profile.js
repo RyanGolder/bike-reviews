@@ -10,18 +10,20 @@ import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
+import { useEffect } from "react";
+
 const Profile = () => {
-  const { username: userParam } = useParams();
+  // const { username: userParam } = useParams();
+  const userParam = Auth.getUsernameFromToken();
+  useEffect(() => {
+    console.log(userParam);
+    }, []);
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
 
   const user = data?.me || data?.user || {};
-
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Navigate to="/me" />;
-  }
 
   if (loading) {
     return <div>Loading...</div>;
@@ -36,7 +38,9 @@ const Profile = () => {
     );
   }
 
-  return (
+
+  if (!loading) {
+     return (
     <Container>
       <Row className="justify-content-center mb-3">
         <Col xs={12} md={8} className="bg-dark text-light mb-3">
@@ -59,7 +63,7 @@ const Profile = () => {
         )}
       </Row>
     </Container>
-  );
+  );}
 };
 
 export default Profile;

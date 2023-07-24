@@ -11,6 +11,7 @@ const ReviewList = ({
   showTitle = true,
   showUsername = true,
 }) => {
+  console.log(reviews);
   const [removeReview] = useMutation(REMOVE_REVIEW);
   
   if (!reviews.length) {
