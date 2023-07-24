@@ -11,9 +11,10 @@ class AuthService {
   }
 
   isTokenExpired(token) {
-    if (!token) {
-      return true;
-    }
+    // if (!token) {
+    //   return true;
+    // }
+    try {
     const decoded = decode(token);
     if (decoded.exp < Date.now() / 1000) {
       localStorage.removeItem("id_token");
@@ -21,6 +22,9 @@ class AuthService {
     }
 
     return false;
+    } catch (err) {
+      return false;
+    }
   }
 
   getToken() {

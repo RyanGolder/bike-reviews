@@ -13,8 +13,6 @@ const ReviewForm = () => {
   const [rating, setRating] = useState("");
   const [bike, setBike] = useState("");
 
-  const [characterCount, setCharacterCount] = useState(0);
-
   const [addReview, { error }] = useMutation(ADD_REVIEW, {
     update(cache, { data: { addReview } }) {
       try {
@@ -55,7 +53,6 @@ const ReviewForm = () => {
       setReviewText("");
       setBike("");
       setRating("");
-      setCharacterCount(0);
     } catch (e) {
       console.error(e);
     }
@@ -66,20 +63,16 @@ const ReviewForm = () => {
 
     if (name === "reviewText" && value.length <= 280) {
       setReviewText(value);
-      setCharacterCount(value.length);
     } else if (name === "bike" && value.length <= 280) {
       setBike(value);
-      setCharacterCount(value.length);
     } else if (name === "rating" && value.length <= 280) {
       setRating(value);
-      setCharacterCount(value.length);
     }
   };
 
   return (
     <div>
       <h3>Leave a review of a bike here!</h3>
-
       {Auth.loggedIn() ? (
         <>
           <Form onSubmit={handleFormSubmit} className="bg-dark text-light p-4">
@@ -88,6 +81,7 @@ const ReviewForm = () => {
               <Form.Control
                 as="textarea"
                 rows={3}
+                name="reviewText"
                 placeholder="Leave a review here!"
                 value={reviewText}
                 onChange={handleChange}
@@ -98,6 +92,7 @@ const ReviewForm = () => {
               <Form.Label>Bike Brand, model and year:</Form.Label>
               <Form.Control
                 type="text"
+                name="bike"
                 value={bike}
                 onChange={handleChange}
                 placeholder="Bike Brand, model and year"
@@ -109,6 +104,7 @@ const ReviewForm = () => {
                 type="number"
                 min={1}
                 max={5}
+                name="rating"
                 value={rating}
                 onChange={handleChange}
                 placeholder="Rating out of 5"

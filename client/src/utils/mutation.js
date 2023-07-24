@@ -17,6 +17,8 @@ export const ADD_USER = gql`
     addUser(username: $username, email: $email, password: $password) {
       token
       user {
+        email
+        password
         _id
         username
       }
@@ -25,12 +27,14 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_REVIEW = gql`
-  mutation addReview($reviewText: String!, $reviewAuthor: String!) {
-    addReview(reviewText: $reviewText, reviewAuthor: $reviewAuthor) {
+  mutation addReview($reviewText: String!, $bike: String!, $rating: Int!) {
+    addReview(reviewText: $reviewText, bike: $bike, rating: $rating) {
       _id
       reviewText
       reviewAuthor
       createdAt
+      rating
+      bike
     }
   }
 `;
