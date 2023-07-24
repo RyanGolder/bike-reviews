@@ -43,7 +43,6 @@ const ReviewForm = () => {
       const { data } = await addReview({
         variables: {
           reviewText,
-          reviewAuthor: Auth.getProfile().data.username,
           rating,
           bike,
         },
