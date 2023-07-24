@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import { useMutation } from "@apollo/client";
 import { REMOVE_REVIEW } from "../../utils/mutation";
 
 import Auth from "../../utils/auth";
@@ -10,6 +11,8 @@ const ReviewList = ({
   showTitle = true,
   showUsername = true,
 }) => {
+  const [removeReview] = useMutation(REMOVE_REVIEW);
+  
   if (!reviews.length) {
     return <h3>No Reviews Yet</h3>;
   }
@@ -22,7 +25,14 @@ const ReviewList = ({
     }
 
     try {
-      await REMOVE_REVIEW(reviewId, token);
+      await removeReview({
+        variables: { reviewId: reviewId },
+        context: {
+          headers: {
+            authorization: `Bearer ${token}`
+          }
+        }
+      });
 
       window.location.reload();
     } catch (err) {
