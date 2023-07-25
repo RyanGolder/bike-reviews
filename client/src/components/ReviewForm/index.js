@@ -33,12 +33,17 @@ const ReviewForm = () => {
         data: { me: { ...me, reviews: [...me.reviews, addReview] } },
       });
     },
+    refetchQueries: [{ query: QUERY_REVIEWS }],
+    onError: (error) => {
+      console.log(error);
+    }
   });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
+      console.log(`reviewText: ${reviewText}, rating: ${rating}, bike: ${bike}`)
       // add review to database
       const { data } = await addReview({
         variables: {
@@ -46,6 +51,36 @@ const ReviewForm = () => {
           rating: parseInt(rating),
           bike,
         },
+        update(cache, { data: { addReview } }) {
+          let data;
+
+          try {
+            data = cache.readQuery({ query: QUERY_REVIEWS });
+            if (data) {
+              const { reviews } = data;
+              cache.writeQuery({
+                query: QUERY_REVIEWS,
+                data: { reviews: [addReview, ...reviews] },
+              });
+            }
+        } catch (e) {
+          console.error(e);
+        }
+
+        // update me object's cache, appending new review to the end of the array
+        try {
+          data = cache.readQuery({ query: QUERY_ME });
+          if (data) {
+            const { me } = data;
+            cache.writeQuery({
+              query: QUERY_ME,
+              data: { me: { ...me, reviews: [...me.reviews, addReview] } },
+            });
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      },
       });
 
       // clear form value
@@ -62,9 +97,9 @@ const ReviewForm = () => {
 
     if (name === "reviewText" && value.length <= 280) {
       setReviewText(value);
-    } else if (name === "bike" && value.length <= 280) {
+    } else if (name === "bike") {
       setBike(value);
-    } else if (name === "rating" && value.length <= 280) {
+    } else if (name === "rating") {
       setRating(value);
     }
   };

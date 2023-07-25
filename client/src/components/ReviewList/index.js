@@ -49,15 +49,14 @@ const ReviewList = ({
           <Card.Body>
             {showUsername && (
               <p className="font-weight-bold mb-1">
-                Review by {review.reviewAuthor} on{" "}
+                Review by {review.reviewAuthor}
               </p>
             )}
             <p className="mb-0">Review: {review.reviewText}</p>
             <p className="mb-0">Bike: {review.bike}</p>
             <p className="mb-0">Rating: {review.rating}</p>
             <p className="mb-0">
-              Created on{" "}
-              {new Date(parseInt(review.createdAt)).toLocaleDateString()}
+              Created on {review.createdAt}
             </p>
             {Auth.loggedIn() && (
               <Button
