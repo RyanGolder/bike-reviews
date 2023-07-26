@@ -19,19 +19,6 @@ const reviewSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-  bike: {
-    type: String,
-    required: true,
-    minlength: 1,
-    maxlength: 280,
-    trim: true,
-  },
-  rating: {
-    type: Number,
-    required: true,
-    min: 1,
-    max: 5,
-  },
 });
 
 const Review = model("Review", reviewSchema);

@@ -27,12 +27,10 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_REVIEW = gql`
-  mutation addReview($reviewText: String!, $bike: String!, $rating: Int!) {
-    addReview(reviewText: $reviewText, bike: $bike, rating: $rating) {
+  mutation addReview($reviewText: String!) {
+    addReview(reviewText: $reviewText) {
       _id
       reviewText
-      bike
-      rating
       createdAt
       reviewAuthor
     }

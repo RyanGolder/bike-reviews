@@ -10,8 +10,6 @@ import Auth from "../../utils/auth";
 
 const ReviewForm = () => {
   const [reviewText, setReviewText] = useState("");
-  const [rating, setRating] = useState("");
-  const [bike, setBike] = useState("");
 
   const [addReview, { error }] = useMutation(ADD_REVIEW, {
     update(cache, { data: { addReview } }) {
@@ -33,7 +31,7 @@ const ReviewForm = () => {
         data: { me: { ...me, reviews: [...me.reviews, addReview] } },
       });
     },
-    refetchQueries: [{ query: QUERY_REVIEWS }],
+    // refetchQueries: [{ query: QUERY_REVIEWS }],
     onError: (error) => {
       console.log(error);
     }
@@ -43,13 +41,10 @@ const ReviewForm = () => {
     event.preventDefault();
 
     try {
-      console.log(`reviewText: ${reviewText}, rating: ${rating}, bike: ${bike}`)
       // add review to database
       const { data } = await addReview({
         variables: {
           reviewText,
-          rating: parseInt(rating),
-          bike,
         },
         update(cache, { data: { addReview } }) {
           let data;
@@ -85,8 +80,6 @@ const ReviewForm = () => {
 
       // clear form value
       setReviewText("");
-      setBike("");
-      setRating("");
     } catch (e) {
       console.error(e);
     }
@@ -97,10 +90,6 @@ const ReviewForm = () => {
 
     if (name === "reviewText" && value.length <= 280) {
       setReviewText(value);
-    } else if (name === "bike") {
-      setBike(value);
-    } else if (name === "rating") {
-      setRating(value);
     }
   };
 
@@ -122,28 +111,6 @@ const ReviewForm = () => {
                 style={{ height: "200px" }}
               />
             </Form.Group>
-            {/* <Form.Group controlId="formBike">
-              <Form.Label>Bike Brand, model and year:</Form.Label>
-              <Form.Control
-                type="text"
-                name="bike"
-                value={bike}
-                onChange={handleChange}
-                placeholder="Bike Brand, model and year"
-              />
-            </Form.Group>
-            <Form.Group controlId="formRating">
-              <Form.Label>Rating out of 5:</Form.Label>
-              <Form.Control
-                type="number"
-                min={1}
-                max={5}
-                name="rating"
-                value={rating}
-                onChange={handleChange}
-                placeholder="Rating out of 5"
-              />
-            </Form.Group> */}
             <Button disabled={!reviewText} type="submit" variant="success">
               Submit
             </Button>
