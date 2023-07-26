@@ -14,15 +14,13 @@ const Home = () => {
   return (
     <Container className="my-5 bg-dark text-light">
       <Row>
-        <Col md={8}>
+        <Col>
           <h1>Welcome to Bike Reviews</h1>
           <p>
             Share your thoughts and reviews on road, gravel, and mountain bikes
             with the cycling community!
           </p>
           <ReviewForm />
-        </Col>
-        <Col md={4}>
           {loading ? (
             <div>Loading...</div>
           ) : (
