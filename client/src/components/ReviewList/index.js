@@ -53,8 +53,8 @@ const ReviewList = ({
               </p>
             )}
             <p className="mb-0">Review: {review.reviewText}</p>
-            <p className="mb-0">Bike: {review.bike}</p>
-            <p className="mb-0">Rating: {review.rating}</p>
+            {/* <p className="mb-0">Bike: {review.bike}</p>
+            <p className="mb-0">Rating: {review.rating}</p> */}
             <p className="mb-0">
               Created on {review.createdAt}
             </p>

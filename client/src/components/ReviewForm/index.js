@@ -122,7 +122,7 @@ const ReviewForm = () => {
                 style={{ height: "200px" }}
               />
             </Form.Group>
-            <Form.Group controlId="formBike">
+            {/* <Form.Group controlId="formBike">
               <Form.Label>Bike Brand, model and year:</Form.Label>
               <Form.Control
                 type="text"
@@ -143,7 +143,7 @@ const ReviewForm = () => {
                 onChange={handleChange}
                 placeholder="Rating out of 5"
               />
-            </Form.Group>
+            </Form.Group> */}
             <Button disabled={!reviewText} type="submit" variant="success">
               Submit
             </Button>
