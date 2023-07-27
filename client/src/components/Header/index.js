@@ -13,7 +13,7 @@ const Header = () => {
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container fluid={true}>
         <Navbar.Brand as={Link} to="/">
-          <h1>Bike reviews</h1>
+          <h1>BIKE REVIEWS</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

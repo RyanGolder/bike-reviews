@@ -45,18 +45,16 @@ const ReviewList = ({
     <>
       {showTitle && <h3>{title}</h3>}
       {reviews.map((review) => (
-        <Card key={review.id} className="mb-2 bg-dark text-light">
+        <Card key={review.id} className="mb-2 bg-dark text-light border-light">
           <Card.Body>
             {showUsername && (
               <p className="font-weight-bold mb-1">
-                Review by {review.reviewAuthor}
+                Review by: {review.reviewAuthor}
               </p>
             )}
             <p className="mb-0">Review: {review.reviewText}</p>
-            {/* <p className="mb-0">Bike: {review.bike}</p>
-            <p className="mb-0">Rating: {review.rating}</p> */}
             <p className="mb-0">
-              Created on {review.createdAt}
+              Created on: {review.createdAt}
             </p>
             {Auth.loggedIn() && (
               <Button

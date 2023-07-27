@@ -44,7 +44,7 @@ const Profile = () => {
     <Container>
       <Row className="justify-content-center mb-3">
         <Col xs={12} md={8} className="bg-dark text-light mb-3">
-          <h2>Viewing {userParam ? `${user.username}'s` : "your"} profile.</h2>
+          <h2>Viewing {userParam ? `${user.username}'s` : "your"} reviews.</h2>
         </Col>
 
         <Col xs={12} md={10} className="bg-dark text-light">

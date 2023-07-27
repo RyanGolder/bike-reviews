@@ -100,12 +100,12 @@ const ReviewForm = () => {
         <>
           <Form onSubmit={handleFormSubmit} className="bg-dark text-light p-4">
             <Form.Group controlId="formReviewText">
-              <Form.Label>Leave a review:</Form.Label>
+              <Form.Label>Leave a review here! Remember to leave the brand, model and year of the bike as well as a rating out of 5.</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={3}
                 name="reviewText"
-                placeholder="Leave a review here!"
+                placeholder="Leave a review here:"
                 value={reviewText}
                 onChange={handleChange}
                 style={{ height: "200px" }}

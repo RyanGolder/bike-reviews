@@ -17,7 +17,7 @@ const Home = () => {
         <Col md={8}>
           <h1>Welcome to Bike Reviews</h1>
           <p>
-            Share your thoughts and reviews on road, gravel, and mountain bikes
+            Share your review of your road, gravel, and/or mountain bike
             with the cycling community!
           </p>
           <ReviewForm />
@@ -27,8 +27,8 @@ const Home = () => {
             <div>Loading...</div>
           ) : (
             <>
-              <h2>Latest Reviews from the Community</h2>
-              <ReviewList reviews={reviews} title="Reviews on Bikes!" />
+              <h2>Latest Reviews from the Community:</h2>
+              <ReviewList reviews={reviews}/>
             </>
           )}
         </Col>
