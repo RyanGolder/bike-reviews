@@ -17,7 +17,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 const httpLink = createHttpLink({
-  uri: "http://localhost:3001/graphql",
+  uri: "https://serene-reef-60590-6d5dec12df94.herokuapp.com/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
