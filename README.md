@@ -16,7 +16,6 @@ The Bike Reviews App is a web application that allows users to share their thoug
 ## Features
 - User Authentication: Users can sign up and log in to the app securely using their email and password. Authentication is handled using JWT (JSON Web Tokens).
 - Create and Read Reviews: Authenticated users can write and publish reviews for various bike models, sharing their experiences and insights with the community. Users can also browse through existing reviews.
-- Rating System: Each review includes a rating out of 5 stars, allowing users to quickly gauge the overall quality of a bike based on community feedback.
 - Profile Page: Users have access to their personalized profile page, where they can view and manage their submitted reviews.
 
 ## Technologies Used
@@ -33,13 +32,7 @@ The Bike Reviews App is a web application that allows users to share their thoug
 - Heroku: The app is deployed on Heroku, providing a fast and reliable hosting service.
 
 ## Installation
-1. Clone the repository to your local machine.
-2. Install the necessary dependencies by running npm install in both the client and server directories.
-3. Ensure you have MongoDB installed and running.
-4. Create a .env file in the server directory and set the required environment variables (e.g., database connection URI, JWT secret, etc.).
-5. In the server directory, start the backend server with npm start.
-6. In the client directory, start the React app with npm start.
-7. Open your browser and navigate to http://localhost:3000 to access the app.
+1. No need to install the app! You can access the app via the link below.
 
 ## Links
 
